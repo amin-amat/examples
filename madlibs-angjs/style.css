@@ -1,0 +1,21 @@
+body {
+	width			: 800px;
+    margin 			: 0 auto;
+}
+header {
+	height 			: 180px;
+}
+.left {
+	float 			: left;
+}
+.right {
+	float 			: left;
+	margin-left 	: 55px;
+	text-align 		: center;
+}
+#fields,
+#results {
+	text-align 		: center;
+	padding 		: 8px 120px;
+	border 			: thin solid lightgray;
+}
