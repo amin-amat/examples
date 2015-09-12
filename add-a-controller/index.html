@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="">
+<html>
 
   <head>
     <link rel="stylesheet" href="style.css">
@@ -7,7 +7,7 @@
     <script src="script.js"></script>
   </head>
 
-  <body>
+  <body  ng-app="myApp">
     <header>
       <div class="left">
         <img src="imgs/mad-lib-happy-face.png" height="101" width="101">
@@ -38,7 +38,7 @@
       </p>
     </section>
     
-    <section id="results">
+    <section id="results" ng-controller="madLibs">
       <p>
         {{ maleName }} was a {{ jobTitle }} who loved technology.
         Although he loved parts of his job, he absolutely hated 
