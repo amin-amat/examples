@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
 
   <head>
     <link rel="stylesheet" href="style.css">
@@ -7,7 +7,7 @@
     <script src="script.js"></script>
   </head>
 
-  <body  ng-app="myApp">
+  <body>
     <header>
       <div class="left">
         <img src="imgs/mad-lib-happy-face.png" height="101" width="101">
@@ -20,6 +20,11 @@
     </header>
     
     <section id="fields">
+      <h3>Select Gender:</h3>
+      <form>
+        <input type="radio" value="male" ng-model="newVal" checked> Male &nbsp;
+        <input type="radio" value="female" ng-model="newVal"> Female
+      </form>
       <h3>Provide the following words:</h3>
       <p>
       <input ng-model="maleName" placeholder="Male Name">
@@ -41,15 +46,15 @@
     <section id="results" ng-controller="madLibs">
       <p>
         {{ maleName }} was a {{ jobTitle }} who loved technology.
-        Although he loved parts of his job, he absolutely hated 
+        Although  <span ng-if="newVal == 'male'">he</span><span ng-if="newVal == 'female'">she</span> loved parts of <span ng-if="newVal == 'male'">his</span><span ng-if="newVal == 'female'">her</span> job, <span ng-if="newVal == 'male'">he</span><span ng-if="newVal == 'female'">she</span> absolutely hated 
         {{ task }} and {{ dirtyTask }}.
         <br>
         So, {{ maleName }} met with
-        his life mentor {{ celebrity }} who told him to learn how to {{ skill }}
+        <span ng-if="newVal == 'male'">his</span><span ng-if="newVal == 'female'">her</span> life mentor {{ celebrity }} who told him to learn how to {{ skill }}
         with Thinkful. Thinkful didn't offer a course on {{ skill }} so
-        he studied programming instead. 
+        <span ng-if="newVal == 'male'">he</span><span ng-if="newVal == 'female'">she</span> studied programming instead. 
       </p><p>
-        What a great decision! With his new skills, {{ maleName }} built
+        What a great decision! With <span ng-if="newVal == 'male'">his</span><span ng-if="newVal == 'female'">her</span> new skills, {{ maleName }} built
         a(n) {{ adjective }} robot named {{ ob_celebrity }} that not only
         loved {{ task }} but did it {{ number }} faster. 
       </p>
