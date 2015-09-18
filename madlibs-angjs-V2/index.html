@@ -4,6 +4,7 @@
   <head>
     <link rel="stylesheet" href="style.css">
     <script data-require="angular.js@1.3.10" data-semver="1.3.10" src="https://code.angularjs.org/1.3.10/angular.js"></script>
+    <script src="https://code.angularjs.org/1.4.6/angular-messages.js"></script>
     <script src="script.js"></script>
   </head>
 
@@ -18,27 +19,37 @@
         <h1>Automate This!</h1>
       </div>
     </header>
-    
+    <div ng-switch="libs">
     <section id="fields">
       <h3>Provide the following words:</h3>
+      <form name="libForm" novalidate>
       <p>
-      <input ng-model="maleName" placeholder="Male Name">
-      <input ng-model="dirtyTask" placeholder="Dirty Task">
-      <input ng-model="ob_celebrity" placeholder="Obnoxious celebrity">
+      <input ng-model="maleName" placeholder="Male Name" name="malename" required ng-minlength="2">
+        <div ng-if="libForm.$submitted&&libForm.malename.$error.required">
+        <span class="error" ng-message="required">INPUT IS REQUIRED</span>
+        </div>
+      <input ng-model="dirtyTask" placeholder="Dirty Task" name="dirtytask" required ng-minlength="4">
+      
+      <input ng-model="ob_celebrity" placeholder="Obnoxious celebrity" required>
       </p>
       <p>
-      <input ng-model="jobTitle" placeholder="Job Title">
-      <input ng-model="celebrity" placeholder="Celebrity">
-      <input ng-model="number" placeholder="Huge Number">
+      <input ng-model="jobTitle" placeholder="Job Title" required>
+      <input ng-model="celebrity" placeholder="Celebrity" required>
+      <input ng-model="number" placeholder="Huge Number" required ng-minlength="1" ng-pattern="/ˆ[0-9]$/">
       </p>
       <p>
-      <input ng-model="task" placeholder="Tedious Task">
-      <input ng-model="skill" placeholder="Useless Skill">
-      <input ng-model="adjective" placeholder="Adjective">
+      <input ng-model="task" placeholder="Tedious Task" required ng-minlength="2">
+      <input ng-model="skill" placeholder="Useless Skill" required ng-minlength="2">
+      <input ng-model="adjective" placeholder="Adjective" required ng-minlength="2">
       </p>
+      <p>
+        <input type="submit" />
+      </p>
+    </form>
+
     </section>
     
-    <section id="results">
+    <section id="results" ng-switch-when="validated">
       <p>
         {{ maleName }} was a {{ jobTitle }} who loved technology.
         Although he loved parts of his job, he absolutely hated 
@@ -54,7 +65,7 @@
         loved {{ task }} but did it {{ number }} faster. 
       </p>
       </section>
-    
+    </div>
   </body>
 
 </html>
