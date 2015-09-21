@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="">
+<html ng-app="myApp">
 
   <head>
     <link rel="stylesheet" href="style.css">
@@ -8,7 +8,7 @@
     <script src="script.js"></script>
   </head>
 
-  <body>
+  <body ng-controller="madLibs">
     <header>
       <div class="left">
         <img src="imgs/mad-lib-happy-face.png" height="101" width="101">
@@ -22,34 +22,80 @@
     <div ng-switch="libs">
     <section id="fields">
       <h3>Provide the following words:</h3>
-      <form name="libForm" novalidate>
-      <p>
+      <form name="libForm" novalidate >
+      
       <input ng-model="maleName" placeholder="Male Name" name="malename" required ng-minlength="2">
         <div ng-if="libForm.$submitted&&libForm.malename.$error.required">
-        <span class="error" ng-message="required">INPUT IS REQUIRED</span>
+          <span class="error" ng-message="required">INPUT IS REQUIRED</span>
+        </div>
+        <div ng-if="libForm.$submitted&&libForm.malename.$error.minlength">
+          <span class="error" ng-message="minlength">Input is too short</span>
         </div>
       <input ng-model="dirtyTask" placeholder="Dirty Task" name="dirtytask" required ng-minlength="4">
+        <div ng-if="libForm.$submitted&&libForm.dirtytask.$error.required">
+          <span class="error" ng-message="required">INPUT IS REQUIRED</span>
+        </div>
+        <div ng-if="libForm.$submitted&&libForm.dirtytask.$error.minlength">
+          <span class="error" ng-message="minlength">Input is too short</span>
+        </div>
+      <input ng-model="ob_celebrity" placeholder="Obnoxious celebrity" name="obxcelebrity" required ng-minlength="2">
+        <div ng-if="libForm.$submitted&&libForm.obxcelebrity.$error.required">
+          <span class="error" ng-message="required">INPUT IS REQUIRED</span>
+        </div>
+        <div ng-if="libForm.$submitted&&libForm.obxcelebrity.$error.minlength">
+          <span class="error" ng-message="minlength">Input is too short</span>
+        </div>
       
-      <input ng-model="ob_celebrity" placeholder="Obnoxious celebrity" required>
-      </p>
+      <input ng-model="jobTitle" placeholder="Job Title" name="jobtitle" required ng-minlength="2">
+        <div ng-show="libForm.$submitted&&libForm.jobtitle.$error.required">
+          <span class="error" ng-message="required">INPUT IS REQUIRED</span>
+        </div>
+        <div ng-show="libForm.$submitted&&libForm.jobtitle.$error.minlength">
+          <span class="error" ng-message="minlength">Input is too short</span>
+        </div>
+      <input ng-model="celebrity" placeholder="Celebrity" name="celebrity" required ng-minlength="2">
+        <div ng-show="libForm.$submitted&&libForm.celebrity.$error.required">
+          <span class="error" ng-message="required">INPUT IS REQUIRED</span>
+        </div>
+        <div ng-show="libForm.$submitted&&libForm.celebrity.$error.minlength">
+          <span class="error" ng-message="minlength">Input is too short</span>
+        </div>
+      <input type="number" ng-model="number" placeholder="Huge Number" name="lrgnumber" required ng-minlength="1" >
+        <div ng-show="libForm.$submitted&&libForm.lrgnumber.$error.required">
+          <span class="error" ng-message="required">INPUT IS REQUIRED</span>
+        </div>
+        <div ng-show="libForm.$submitted&&libForm.lrgnumber.$error.number">
+          <span class="error" ng-message="minlength">Input numbers only!</span>
+        </div>
+      
+      <input ng-model="task" placeholder="Tedious Task" name="task" required ng-minlength="2">
+        <div ng-show="libForm.$submitted&&libForm.task.$error.required">
+          <span class="error" ng-message="required">INPUT IS REQUIRED</span>
+        </div>
+        <div ng-show="libForm.$submitted&&libForm.task.$error.minlength">
+          <span class="error" ng-message="minlength">Input is too short</span>
+        </div>
+      <input ng-model="skill" placeholder="Useless Skill" name="skill" required ng-minlength="2">
+        <div ng-show="libForm.$submitted&&libForm.skill.$error.required">
+          <span class="error" ng-message="required">INPUT IS REQUIRED</span>
+        </div>
+        <div ng-show="libForm.$submitted&&libForm.skill.$error.minlength">
+          <span class="error" ng-message="minlength">Input is too short</span>
+        </div>
+      <input ng-model="adjective" placeholder="Adjective" name="adj" required ng-minlength="2">
+        <div ng-show="libForm.$submitted&&libForm.adj.$error.required">
+          <span class="error" ng-message="required">INPUT IS REQUIRED</span>
+        </div>
+        <div ng-show="libForm.$submitted&&libForm.adj.$error.minlength">
+          <span class="error" ng-message="minlength">Input is too short</span>
+        </div>
       <p>
-      <input ng-model="jobTitle" placeholder="Job Title" required>
-      <input ng-model="celebrity" placeholder="Celebrity" required>
-      <input ng-model="number" placeholder="Huge Number" required ng-minlength="1" ng-pattern="/ˆ[0-9]$/">
-      </p>
-      <p>
-      <input ng-model="task" placeholder="Tedious Task" required ng-minlength="2">
-      <input ng-model="skill" placeholder="Useless Skill" required ng-minlength="2">
-      <input ng-model="adjective" placeholder="Adjective" required ng-minlength="2">
-      </p>
-      <p>
-        <input type="submit" />
+        <input type="submit"  ng-click="libs='validated'" ng-disabled="libForm.$invalid"/>
       </p>
     </form>
 
     </section>
-    
-    <section id="results" ng-switch-when="validated">
+    <section id="results" ng-switch-when="validated" >
       <p>
         {{ maleName }} was a {{ jobTitle }} who loved technology.
         Although he loved parts of his job, he absolutely hated 

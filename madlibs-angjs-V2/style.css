@@ -16,6 +16,11 @@ header {
 #fields,
 #results {
 	text-align 		: center;
-	padding 		: 8px 120px;
+	padding 		: 8px;
 	border 			: thin solid lightgray;
+	overflow: hidden;
+}
+input {
+	display: block;
+	margin: 10px auto;
 }

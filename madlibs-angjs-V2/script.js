@@ -15,5 +15,4 @@ controller('madLibs', function($scope) {
 		}
 	];
 	
-	
 });
