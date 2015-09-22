@@ -1,0 +1,41 @@
+<!doctype html>
+<html ng-app="calcApp">
+<head>
+	<title>Waitstaff Calculator Project</title>
+	<script data-require="angular.js@1.3.10" data-semver="1.3.10" src="https://code.angularjs.org/1.3.10/angular.js"></script>
+</head>
+<body ng-controller="calc">
+<header>
+	<h1> Waitstaff Calculator</h1>
+</header>
+<section>
+	<form>
+	<div class="col1">
+		<div class="box">
+		<h4>Enter the Meal Details</h4>
+		<p>Enter the meal Price: $<input type="number" name="mealprice" ng-model="mealPrice" required></p>
+		<p>Tax Rate: %<input type="number" name="taxrate" ng-model="taxRate" required></p>
+		<p>Tip Percentage: %<input type="number" name="tip" ng-model="tipPercent" required></p>
+		<input type="submit" value="Submit">
+		<input type="submit" value="Cancel">
+		</div>
+	</div>
+	<div class="col1">
+		<div class="box">
+			<h4>Customer Charges</h4>
+			<p>Subtotal {{ subtotal | currency}}</p>
+			<p>Tip {{ tip | currency }}</p>
+			Total {{ total | currency }}
+		</div>
+		<div class="box">
+			<h4>My Earnings Info</h4>
+			<p>Tip Total: {{ tip_total | currency }} </p>
+			<p>Meal Count: {{ meal_count }}</p>
+			<p>Avergae Tip per Meal: {{ tip_meal | currency}}</p>
+		</div>
+		<input type="submit" value="Reset">
+	</div>
+	</form>
+</section>
+</body>
+</html>
