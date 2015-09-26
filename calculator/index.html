@@ -14,10 +14,11 @@
 	<div class="col1">
 		<div class="box">
 		<h4>Enter the Meal Details</h4>
-		<p>Enter the meal Price: $<input type="number" name="mealprice" ng-model="mealPrice" required></p>
+		<p>Enter the Meal Price: $<input type="number" name="mealprice" ng-model="mealPrice" required></p>
 		<p>Tax Rate: %<input type="number" name="taxrate" ng-model="taxRate" required></p>
 		<p>Tip Percentage: %<input type="number" name="tip" ng-model="tipPercent" required></p>
-		<input type="submit" value="Submit">
+		<input type="hidden" ng-model="mealCount">
+		<input type="submit" value="Submit" ng-click="update()">
 		<input type="submit" value="Cancel">
 		</div>
 	</div>
@@ -25,16 +26,17 @@
 		<div class="box">
 			<h4>Customer Charges</h4>
 			<p>Subtotal {{ mealPrice | currency}}</p>
-			<p>Tip {{ (tipPercent | percent) * mealPrice | currency}}</p>
+			<!--<p>Tip {{ (tipPercent | percent) * mealPrice | currency}}</p>-->
+			<p>Tip {{ tipTotal() | currency }}</p>
 			Total {{ mealPrice + ((tipPercent | percent) * mealPrice) + ( (taxRate | percent) * mealPrice)  | currency }}
 		</div>
 		<div class="box">
 			<h4>My Earnings Info</h4>
-			<p>Tip Total: {{ tip_total | currency }} </p>
-			<p>Meal Count: {{ meal_count }}</p>
-			<p>Average Tip per Meal: {{ tip_meal | currency}}</p>
+			<p>Tip Total: {{ tipEarningsTotal() | currency }} </p>
+			<p>Meal Count: {{ mealCount() }}</p>
+			<p>Average Tip per Meal: {{ tipMeal() | currency}}</p>
 		</div>
-		<input type="submit" value="Reset">
+		<input type="submit" value="Reset" onclick="reset()">
 	</div>
 	</form>
 </section>
