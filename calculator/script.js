@@ -37,9 +37,9 @@ $scope.tipMeal = function() {
 };
 
 $scope.reset = function() {
-	$scope.earnings = [];
-	$scope.mealCount = 0;
-	tipEarningsTotal()
+	while($scope.earnings.length) {
+		$scope.earnings.length.pop();
+	}
 
 };
 	
