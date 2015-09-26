@@ -19,7 +19,7 @@
 		<p>Tip Percentage: %<input type="number" name="tip" ng-model="tipPercent" required></p>
 		<input type="hidden" ng-model="mealCount">
 		<input type="submit" value="Submit" ng-click="update()">
-		<input type="submit" value="Cancel">
+		<input type="reset" value="Cancel" >
 		</div>
 	</div>
 	<div class="col1">
@@ -36,7 +36,7 @@
 			<p>Meal Count: {{ mealCount() }}</p>
 			<p>Average Tip per Meal: {{ tipMeal() | currency}}</p>
 		</div>
-		<input type="submit" value="Reset" onclick="reset()">
+		<input type="submit" value="Reset" ng-click="reset()">
 	</div>
 	</form>
 </section>

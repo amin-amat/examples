@@ -38,7 +38,7 @@ $scope.tipMeal = function() {
 
 $scope.reset = function() {
 	while($scope.earnings.length) {
-		$scope.earnings.length.pop();
+		$scope.earnings.pop();
 	}
 
 };
