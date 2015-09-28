@@ -3,7 +3,7 @@
 <head>
 	<title>Waitstaff Calculator Project</title>
 	<script data-require="angular.js@1.3.10" data-semver="1.3.10" src="https://code.angularjs.org/1.3.10/angular.js"></script>
-	<script src="script.js"></script>
+	<script src="../controllers/main.js"></script>
 </head>
 <body ng-controller="calc">
 <header>
@@ -19,24 +19,24 @@
 		<p>Tip Percentage: %<input type="number" name="tip" ng-model="tipPercent" required></p>
 		<input type="hidden" ng-model="mealCount">
 		<input type="submit" value="Submit" ng-click="update()">
-		<input type="reset" value="Cancel" ng-click="clearExp()">
+		<input type="reset" value="Cancel">
 		</div>
 	</div>
 	<div class="col1">
 		<div class="box">
 			<h4>Customer Charges</h4>
-			<p>Subtotal {{ mealPrice | currency}}</p>
-			<!--<p>Tip {{ (tipPercent | percent) * mealPrice | currency}}</p>-->
-			<p>Tip {{ tipTotal() | currency }}</p>
-			Total {{ mealPrice + ((tipPercent | percent) * mealPrice) + ( (taxRate | percent) * mealPrice)  | currency }}
+			<p>Subtotal: <span ng-bind="mealSubPrice | currency"></span></p>
+			<p>Tax: <span ng-bind="taxTotal | currency"></span></p>
+			<p>Tip: <span ng-bind="tipTotal | currency"></span></p>
+			Total: <span ng-bind="mealTotal | currency"></span>
 		</div>
 		<div class="box">
 			<h4>My Earnings Info</h4>
-			<p>Tip Total: {{ tipEarningsTotal() | currency }} </p>
-			<p>Meal Count: {{ mealCount() }}</p>
-			<p>Average Tip per Meal: {{ tipMeal() | currency}}</p>
+			<p>Tip Total: <span ng-bind="tipEarningsTotal | currency"></span></p>
+			<p>Meal Count: <span ng-bind="mealCount"></span></p>
+			<p>Average Tip per Meal: <span ng-bind="tipMeal | currency"></span></p>
 		</div>
-		<input type="submit" value="Reset" ng-click="reset()">
+		<input type="reset" value="Reset" ng-click="reset()">
 	</div>
 	</form>
 </section>
