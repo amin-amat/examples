@@ -36,6 +36,8 @@ $scope.tipMeal = function() {
 	return (($scope.tipEarningsTotal()) / $scope.earnings.length);
 };
 
+$scope.clearExp =
+
 $scope.reset = function() {
 	while($scope.earnings.length) {
 		$scope.earnings.pop();
