@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <script data-require="angular.js@1.3.10" data-semver="1.3.10" src="https://code.angularjs.org/1.3.10/angular.js"></script>
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="left">
+        <img src="imgs/mad-lib-happy-face.png" height="101" width="101">
+      </div>
+      
+      <div class="right">
+        <img src="imgs/ng-mad-libs-logo.png" height="116" width="460" align="right">
+        <h1>Automate This!</h1>
+      </div>
+    </header>
+    
+    <section id="fields">
+      <h3>Select Gender:</h3>
+      <form>
+        <input type="radio" value="male" ng-model="newVal" checked> Male &nbsp;
+        <input type="radio" value="female" ng-model="newVal"> Female
+      </form>
+      <h3>Provide the following words:</h3>
+      <p>
+      <input ng-model="maleName" placeholder="Male Name">
+      <input ng-model="dirtyTask" placeholder="Dirty Task">
+      <input ng-model="ob_celebrity" placeholder="Obnoxious celebrity">
+      </p>
+      <p>
+      <input ng-model="jobTitle" placeholder="Job Title">
+      <input ng-model="celebrity" placeholder="Celebrity">
+      <input ng-model="number" placeholder="Huge Number">
+      </p>
+      <p>
+      <input ng-model="task" placeholder="Tedious Task">
+      <input ng-model="skill" placeholder="Useless Skill">
+      <input ng-model="adjective" placeholder="Adjective">
+      </p>
+    </section>
+    
+    <section id="results" ng-controller="madLibs">
+      <p>
+        {{ maleName }} was a {{ jobTitle }} who loved technology.
+        Although  <span ng-if="newVal == 'male'">he</span><span ng-if="newVal == 'female'">she</span> loved parts of <span ng-if="newVal == 'male'">his</span><span ng-if="newVal == 'female'">her</span> job, <span ng-if="newVal == 'male'">he</span><span ng-if="newVal == 'female'">she</span> absolutely hated 
+        {{ task }} and {{ dirtyTask }}.
+        <br>
+        So, {{ maleName }} met with
+        <span ng-if="newVal == 'male'">his</span><span ng-if="newVal == 'female'">her</span> life mentor {{ celebrity }} who told him to learn how to {{ skill }}
+        with Thinkful. Thinkful didn't offer a course on {{ skill }} so
+        <span ng-if="newVal == 'male'">he</span><span ng-if="newVal == 'female'">she</span> studied programming instead. 
+      </p><p>
+        What a great decision! With <span ng-if="newVal == 'male'">his</span><span ng-if="newVal == 'female'">her</span> new skills, {{ maleName }} built
+        a(n) {{ adjective }} robot named {{ ob_celebrity }} that not only
+        loved {{ task }} but did it {{ number }} faster. 
+      </p>
+      </section>
+    
+  </body>
+
+</html>
