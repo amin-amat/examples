@@ -19,3 +19,20 @@ header {
 	padding 		: 8px 120px;
 	border 			: thin solid lightgray;
 }
+
+
+#results {
+	transition: all linear 0.4s;
+}
+
+#results.ng-enter,
+#results.ng-leave.ng-leave-active {
+	color: #fff;
+  max-height:0;
+}
+
+#results.ng-leave,
+#results.ng-enter.ng-enter-active {
+	color: #000;
+  max-height:300px;
+}
