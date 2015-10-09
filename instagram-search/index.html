@@ -27,7 +27,7 @@
 		
 		<div ng-repeat="item in results.data" class="img">
 			
-			<img ng-src="{{ item.images.thumbnail.url }}" />
+			<a href="{{ item.images.thumbnail.url }}"><img ng-src="{{ item.images.thumbnail.url }}" /></a>
 		</div>
 				
 	</section>
