@@ -17,10 +17,12 @@ section#searching {
 section#searchend {
 	width: 800px;
 	border: thin solid lightgray;
+	overflow: hidden;
 }
 
 section#searchend h2 {
 	margin-bottom: 20px;
+
 }
 
 .img {

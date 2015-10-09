@@ -13,15 +13,14 @@ angular.module("searchApp",[])
 			callback : 'JSON_CALLBACK'
 		};
 	
-
-	$http ({
+	$http({
 		method: 'JSONP',
 		url: url,
 		params: request
 	})
 	.then(function(response) {
 		$scope.results = response.data;
-		console.log($http);
+		
 		console.log($scope.results);
 	},
 	function(response) {

@@ -23,11 +23,11 @@
 	</section>
 
 	<section id="searchend">
-		<h2>{{ results.length }} results found for {{ tag }}</h2>
+		<h2>{{ results.data.length }} results found for {{ tag }}</h2>
 		
-		<div ng-repeat="item in results">
+		<div ng-repeat="item in results.data" class="img">
 			
-			<h3>{{ item.tags }}</h3>
+			<img ng-src="{{ item.images.thumbnail.url }}" />
 		</div>
 				
 	</section>
