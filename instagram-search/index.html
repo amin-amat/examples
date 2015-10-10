@@ -12,19 +12,18 @@
 <body ng-controller="searchCtrlr">
 	<section id="header">
 		<img src="imgs/ng-instagram.png">
-		<form ng-submit="searchTerm(tag)">
+		<form name="searchForm" novalidate ng-submit="searchTerm(tag)">
 		<input ng-model="tag" placeholder="Enter search term here" required>
-		<input type="submit" value="SEARCH">
+		<input type="submit" value="SEARCH" ng-disabled="searchForm.$invalid" ng-click="search=!search">
 	</form>
 	</section>
 
-	<section id="searching">
+	<section id="searching" ng-if="search">
 		<h3>Searching for {{ tag }}. Please wait ...</h3>
 	</section>
 
-	<section id="searchend">
+	<section id="searchend" ng-if="searchOver">
 		<h2>{{ results.data.length }} results found for {{ tag }}</h2>
-		
 		<div ng-repeat="item in results.data" class="img">
 			
 			<a href="{{ item.images.thumbnail.url }}"><img ng-src="{{ item.images.thumbnail.url }}" /></a>

@@ -1,6 +1,7 @@
 angular.module("searchApp",[])
 .controller("searchCtrlr", function($scope, $http) {
-	
+	$scope.search = false;
+	$scope.searchOver = false;
 
 	$scope.searchTerm = function(tag) {
 		$scope.tag = tag;
@@ -21,7 +22,7 @@ angular.module("searchApp",[])
 	.then(function(response) {
 		$scope.results = response.data;
 		
-		console.log($scope.results);
+		//console.log($scope.results);
 	},
 	function(response) {
       alert('error');
