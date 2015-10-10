@@ -23,7 +23,6 @@ angular.module("searchApp",[])
 		$scope.results = response.data;
 		$scope.search = false;
 		$scope.searchOver = true;
-		//console.log($scope.results);
 	},
 	function(response) {
       alert('error');
