@@ -21,7 +21,8 @@ angular.module("searchApp",[])
 	})
 	.then(function(response) {
 		$scope.results = response.data;
-		
+		$scope.search = false;
+	$scope.searchOver = true;
 		//console.log($scope.results);
 	},
 	function(response) {

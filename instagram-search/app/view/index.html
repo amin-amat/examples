@@ -11,13 +11,8 @@
 
 <body ng-controller="searchCtrlr">
 	<section id="header">
-<<<<<<< HEAD:instagram-search/index.html
-		<img src="imgs/ng-instagram.png">
-		<form name="searchForm" novalidate ng-submit="searchTerm(tag)">
-=======
 		<img src="../../imgs/ng-instagram.png">
-		<form ng-submit="searchTerm(tag)">
->>>>>>> origin/master:instagram-search/app/view/index.html
+		<form name="searchForm" novalidate ng-submit="searchTerm(tag)">
 		<input ng-model="tag" placeholder="Enter search term here" required>
 		<input type="submit" value="SEARCH" ng-disabled="searchForm.$invalid" ng-click="search=!search">
 	</form>
