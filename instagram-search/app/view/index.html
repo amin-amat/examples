@@ -3,16 +3,21 @@
 
 <head>
 <title>Instagram Search using Angular</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../../style.css">
 <script data-require="angular.js@1.3.10" data-semver="1.3.10" src="https://code.angularjs.org/1.3.10/angular.js"></script>
-<script src="app/controller/searchApp.js"></script>
+<script src="../../app/controller/searchApp.js"></script>
 
 </head>
 
 <body ng-controller="searchCtrlr">
 	<section id="header">
+<<<<<<< HEAD:instagram-search/index.html
 		<img src="imgs/ng-instagram.png">
 		<form name="searchForm" novalidate ng-submit="searchTerm(tag)">
+=======
+		<img src="../../imgs/ng-instagram.png">
+		<form ng-submit="searchTerm(tag)">
+>>>>>>> origin/master:instagram-search/app/view/index.html
 		<input ng-model="tag" placeholder="Enter search term here" required>
 		<input type="submit" value="SEARCH" ng-disabled="searchForm.$invalid" ng-click="search=!search">
 	</form>
