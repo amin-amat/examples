@@ -1,7 +1,28 @@
 angular.module("searchApp",[])
+.factory('checkConfig', function checkConfig() {
+	return {
+   			request : function(config) {
+   	    		// same as above
+   	    		console.log(config.headers);
+   	    		return config;
+    		},
+    		response : function(config) {
+       			// same as above
+       			console.log(config);
+       			return config;
+    		}
+  		}
+  		console.log('See me?');	
+})
+.config(['$httpProvider', function($httpProvider) {
+	$httpProvider.interceptors.push('checkConfig');
+	}])
+
+
 .controller("searchCtrlr", function($scope, $http) {
 	$scope.search = false;
 	$scope.searchOver = false;
+
 
 	$scope.searchTerm = function(tag) {
 		$scope.tag = tag;
