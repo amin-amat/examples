@@ -1,0 +1,44 @@
+<!doctype html>
+<html ng-app="calcApp">
+<head>
+	<title>Waitstaff Calculator Project</title>
+	<script data-require="angular.js@1.3.10" data-semver="1.3.10" src="https://code.angularjs.org/1.3.10/angular.js"></script>
+	<script src="../controllers/main.js"></script>
+</head>
+<body ng-controller="calc">
+<header>
+	<h1> Waitstaff Calculator</h1>
+</header>
+<section>
+	<form>
+	<div class="col1">
+		<div class="box">
+		<h4>Enter the Meal Details</h4>
+		<p>Enter the Meal Price: $<input type="number" name="mealprice" ng-model="mealPrice" required></p>
+		<p>Tax Rate: %<input type="number" name="taxrate" ng-model="taxRate" required></p>
+		<p>Tip Percentage: %<input type="number" name="tip" ng-model="tipPercent" required></p>
+		<input type="hidden" ng-model="mealCount">
+		<input type="submit" value="Submit" ng-click="update()">
+		<input type="reset" value="Cancel">
+		</div>
+	</div>
+	<div class="col1">
+		<div class="box">
+			<h4>Customer Charges</h4>
+			<p>Subtotal: <span ng-bind="mealSubPrice | currency"></span></p>
+			<p>Tax: <span ng-bind="taxTotal | currency"></span></p>
+			<p>Tip: <span ng-bind="tipTotal | currency"></span></p>
+			Total: <span ng-bind="mealTotal | currency"></span>
+		</div>
+		<div class="box">
+			<h4>My Earnings Info</h4>
+			<p>Tip Total: <span ng-bind="tipEarningsTotal | currency"></span></p>
+			<p>Meal Count: <span ng-bind="mealCount"></span></p>
+			<p>Average Tip per Meal: <span ng-bind="tipMeal | currency"></span></p>
+		</div>
+		<input type="reset" value="Reset" ng-click="reset()">
+	</div>
+	</form>
+</section>
+</body>
+</html>
