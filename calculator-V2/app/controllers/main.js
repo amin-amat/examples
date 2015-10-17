@@ -1,4 +1,18 @@
-angular.module('calcApp',[])
+angular.module('calcApp',['ngRoute'])
+.config(['$routeProvider', function($routeProvider) {
+	$routeProvider.when('/', {
+		templateUrl : 'home.html',
+		controller : 'calc'
+	})
+	.when('/my-earnings', {
+		templateUrl : 'my-earnings.html',
+		controller : 'calc'
+	})
+	.when('/new-meal', {
+		templateUrl : 'new-meal.html',
+		controller : 'calc'
+	});
+}])
 .controller('calc', function($scope) {
 
 

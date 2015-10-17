@@ -1,0 +1,13 @@
+<section>
+	<form>
+	<div class="col1">
+		<div class="box">
+			<h4>My Earnings Info</h4>
+			<p>Tip Total: <span ng-bind="tipEarningsTotal | currency"></span></p>
+			<p>Meal Count: <span ng-bind="mealCount"></span></p>
+			<p>Average Tip per Meal: <span ng-bind="tipMeal | currency"></span></p>
+		</div>
+		<input type="reset" value="Reset" ng-click="reset()">
+	</div>
+	</form>
+</section>
