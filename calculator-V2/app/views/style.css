@@ -1,2 +1,28 @@
-body {width:800px;margin: 0 auto;padding-left:250px;}
-#nav ul li {display:inline-block;}
+body {
+	width:800px;
+	margin: 0 auto;
+}
+header {
+	text-align: center;
+}
+#nav {
+	margin-bottom:50px;
+}
+#nav ul {
+	margin: 0 auto;
+	width: 250px;
+}
+#nav ul li {
+	display:inline-block;
+}
+
+#new-meal form,
+#earnings form {
+	width:280px;
+	margin: 0 auto;
+}
+
+.col1 {
+	border: thin solid black;
+	padding: 20px;
+}
