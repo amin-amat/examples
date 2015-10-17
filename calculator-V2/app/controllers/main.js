@@ -2,18 +2,18 @@ angular.module('calcApp',['ngRoute'])
 .config(['$routeProvider', function($routeProvider) {
 	$routeProvider.when('/', {
 		templateUrl : 'home.html',
-		controller : 'calc'
+		controller : 'calc2'
 	})
 	.when('/my-earnings', {
 		templateUrl : 'my-earnings.html',
-		controller : 'calc'
+		controller : 'calc2'
 	})
 	.when('/new-meal', {
 		templateUrl : 'new-meal.html',
 		controller : 'calc'
 	});
 }])
-.controller('calc', function($scope) {
+.controller('calc', ["$scope", "$rootScope", function($scope, $rootScope) {
 
 
 $scope.earnings = [];
@@ -27,9 +27,9 @@ $scope.update = function() {
 	var calculateTip 	= $scope.tipTotal;
 	$scope.earnings.push(calculateTip);
 
-	$scope.tipEarningsTotal = $scope.tipEarnings();
-	$scope.mealCount 		= $scope.earnings.length;
-	$scope.tipMeal 			= $scope.tipEarningsTotal / $scope.earnings.length;
+	$rootScope.tipEarningsTotal = $scope.tipEarnings();
+	$rootScope.mealCount 		= $scope.earnings.length;
+	$rootScope.tipMeal 			= $scope.tipEarningsTotal / $scope.earnings.length;
 };
 
 $scope.tipEarnings = function() {
@@ -39,6 +39,15 @@ $scope.tipEarnings = function() {
 	});
 	return (sum);
 };
+
+	
+}])
+
+.controller('calc2', ["$scope", "$rootScope", function($scope, $rootScope) {
+
+	$scope.tipEarningsTotal = $rootScope.tipEarningsTotal;
+	$scope.mealCount 		= $rootScope.mealCount;
+	$scope.tipMeal 			= $rootScope.tipMeal;
 
 $scope.reset = function() {
 	while($scope.earnings.length) {
@@ -52,8 +61,4 @@ $scope.reset = function() {
 	$scope.mealCount 		= 0;
 	$scope.tipMeal 			= 0;
 };
-
-
-
-	
-});
+}]);
