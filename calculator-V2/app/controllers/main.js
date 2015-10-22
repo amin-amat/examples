@@ -1,4 +1,4 @@
-angular.module('calcApp',['ngRoute'])
+angular.module('calcApp',['ngRoute', 'ngAnimate'])
 .config(['$routeProvider', function($routeProvider) {
 	$routeProvider.when('/', {
 		templateUrl : 'home.html',
@@ -13,25 +13,21 @@ angular.module('calcApp',['ngRoute'])
 		controller : 'calc'
 	});
 }])
+
 .controller('calc', ["$scope", "$rootScope", function($scope, $rootScope) {
 
-
 $scope.earnings = [];
-
 $scope.update = function() {
 	$scope.mealSubPrice = $scope.mealPrice;
-	$scope.taxTotal		= ($scope.taxRate / 100) * $scope.mealPrice;
-	$scope.tipTotal 	= ($scope.tipPercent / 100 ) * $scope.mealPrice;
-	$scope.mealTotal 	= $scope.mealSubPrice + $scope.taxTotal + $scope.tipTotal;
-
-	var calculateTip 	= $scope.tipTotal;
+	$scope.taxTotal			= ($scope.taxRate / 100) * $scope.mealPrice;
+	$scope.tipTotal 		= ($scope.tipPercent / 100 ) * $scope.mealPrice;
+	$scope.mealTotal 		= $scope.mealSubPrice + $scope.taxTotal + $scope.tipTotal;
+	var calculateTip 		= $scope.tipTotal;
 	$scope.earnings.push(calculateTip);
-
 	$rootScope.tipEarningsTotal = $scope.tipEarnings();
-	$rootScope.mealCount 		= $scope.earnings.length;
-	$rootScope.tipMeal 			= $scope.tipEarningsTotal / $scope.earnings.length;
+	$rootScope.mealCount 				= $scope.earnings.length;
+	$rootScope.tipMeal 					= $scope.tipEarningsTotal / $scope.earnings.length;
 };
-
 $scope.tipEarnings = function() {
 	var sum = 0;
 	$scope.earnings.map(function(item) {
@@ -39,26 +35,23 @@ $scope.tipEarnings = function() {
 	});
 	return (sum);
 };
-
-	
 }])
 
 .controller('calc2', ["$scope", "$rootScope", function($scope, $rootScope) {
-
 	$scope.tipEarningsTotal = $rootScope.tipEarningsTotal;
-	$scope.mealCount 		= $rootScope.mealCount;
-	$scope.tipMeal 			= $rootScope.tipMeal;
-
+	$scope.mealCount 				= $rootScope.mealCount;
+	$scope.tipMeal 					= $rootScope.tipMeal;
 $scope.reset = function() {
 	while($scope.earnings.length) {
 		$scope.earnings.pop();
 	}
-	$scope.mealSubPrice 	= 0;
-	$scope.taxTotal 		= 0;
-	$scope.tipTotal 		= 0;
-	$scope.mealTotal 		= 0;
+	$scope.mealSubPrice 		= 0;
+	$scope.taxTotal 				= 0;
+	$scope.tipTotal 				= 0;
+	$scope.mealTotal 				= 0;
 	$scope.tipEarningsTotal = 0;
-	$scope.mealCount 		= 0;
-	$scope.tipMeal 			= 0;
+	$scope.mealCount 				= 0;
+	$scope.tipMeal 					= 0;
 };
+
 }]);
