@@ -1,0 +1,26 @@
+<!-- City page code -->
+<section id="city">
+	<header>
+		<h3>City Data</h3>
+	</header>
+	<div>
+		{{info.countryName}}
+		{{info.areaInSqKm}}
+		{{info.capital}}
+		{{info.population}}
+		{{country_neighbors}}
+	</div>
+	<div>
+		<!-- MAP -->
+		<img id='myImage' src="http://www.geonames.org/img/country/250/{{ info.countryCode }}.png" />
+		
+		<!-- FLAG -->
+		<img src="http://www.geonames.org/flags/x/{{ info.countryCode }}.gif" />
+	</div>
+	<div>
+		<ul>
+			<li><button><a href="#/">Home</a></button></li>
+			<li><button><a href="#/countries">Browse Countries</a></button></li>
+		</ul>
+	</div>
+</section>
