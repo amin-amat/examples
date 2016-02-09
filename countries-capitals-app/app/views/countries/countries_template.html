@@ -16,7 +16,7 @@
 				<th>Continent Code</th>
 			</tr>
 			<tr ng-repeat=" info in countries | orderBy: 'name' ">
-				<td> <a href="#/cities/:{{ info.countryName }}/{{ info.capital }}">{{ info.countryName }} </a> </td>
+				<td> <a href="#/countries/:{{ info.countryName }}/{{ info.capital }}">{{ info.countryName }} </a> </td>
 				<td> {{ info.countryCode }} </td>
 				<td> {{ info.capital }} </td>
 				<td> {{ info.areaInSqKm }} </td>

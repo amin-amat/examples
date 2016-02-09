@@ -1,5 +1,3 @@
-//angular.module("ccApp",['ngRoute','ngAnimate'])
-
 viewsModule.config(['$routeProvider', function($routeProvider) {
 	$routeProvider.when('/', {
 	templateUrl : 'home.html',
@@ -9,16 +7,10 @@ viewsModule.config(['$routeProvider', function($routeProvider) {
 	templateUrl : 'countries/countries_template.html',
 	controller : 'countryData'
 	})
-	.when('/cities', {
+	.when('/countries/:country/capital', {
 	templateUrl : 'cities/city_template.html',
 	controller : 'city'
 	})
-}])
-
-
-.controller('home', ["$scope", function($scope) {
-
-	
 }]);
 
 

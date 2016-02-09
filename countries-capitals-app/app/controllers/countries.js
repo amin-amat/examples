@@ -14,7 +14,7 @@ viewsModule.controller('countryData', ["$scope","$http", function($scope, $http)
 		})
 		.then(function(response) {
 			$scope.countries = response.data.geonames;
-			console.log($scope.countries);
+			//console.log($scope.countries);
 		},
 		function(response) {
 			alert('error');
