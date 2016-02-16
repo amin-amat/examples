@@ -1,1 +1,8 @@
-header h3 {text-align:center;}
+header h4,header h3, #visuals {text-align:center;}
+button {padding: 8px;border-radius:5px;background:#fff;border:thin solid lightgray;}
+p {margin:10px 33%}
+#nav-bottom {text-align:center;}
+li {list-style-type:none;display: inline;}
+section#country, section#countries table, hr {margin:0 auto; width:640px;}
+#cImage  {height:200px;}
+#cFlag {width:200px;}

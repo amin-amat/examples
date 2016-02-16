@@ -1,8 +1,5 @@
 angular.module('ccApp')
 .controller('country', ["$scope", "geoData", "geoData_neighbor", "geoData_cap", "countryDetail", function($scope, geoData, geoData_neighbor, geoData_cap, countryDetail) {
-
-	//var countryInfoDetail = geoData.countryInfo("&country=+'countryDetail'");
-	//var baseurl = 'http://api.geonames.org/countryInfoJSON?formatted=true&lang=eng&username=aminamat&style=full';
 	var url_string = '&country=';
 	var cDetail = String(countryDetail.country).substring(1);
 	var url = url_string + cDetail;
