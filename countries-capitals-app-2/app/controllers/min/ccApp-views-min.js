@@ -1,0 +1,1 @@
+var viewsModule=angular.module("ccApp",["ngRoute","ngAnimate"]);viewsModule.config(["$routeProvider",function(e){e.when("/",{templateUrl:"home.html",controller:"home"}).when("/countries",{templateUrl:"countries/countries_template.html",controller:"countryData"}).when("/countries/:country/capital",{templateUrl:"cities/city_template.html",controller:"city"})}]);

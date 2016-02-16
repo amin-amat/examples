@@ -1,0 +1,29 @@
+<!-- City page code -->
+<section id="city">
+	<header>
+		<h3>{{info.countryName}}</h3>
+	</header>
+	<div>
+		<p>Population of Country : {{info.population}}</p>
+		<p>Area : {{info.areaInSqKm}}</p>
+		<p>Capital : {{ capital.name }}</p>
+		<p>Capital Population : {{ capital.population }}</p>
+	</div>
+	<div ng-repeat="info in neighbors">
+		<p>Neighbor: <a ng-href="#/countries/:{{ info.countryCode }}">{{info.countryName}}</a></p>
+	</div>
+	<div>
+		<!-- MAP -->
+		<img id='myImage' src="http://www.geonames.org/img/country/250/{{ info.countryCode }}.png" />
+		
+		<!-- FLAG -->
+		<img src="http://www.geonames.org/flags/x/{{ info.countryCode | lowercase }}.gif" />
+	</div>
+	
+	<div>
+		<ul>
+			<li><button><a href="#/">Home</a></button></li>
+			<li><button><a href="#/countries">Browse Countries</a></button></li>
+		</ul>
+	</div>
+</section>

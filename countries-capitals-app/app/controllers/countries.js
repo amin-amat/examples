@@ -1,3 +1,10 @@
+viewsModule.controller('countryData', function($scope, ccCountries) {
+	ccCountries()
+	.then(function(countries) {
+		$scope.countries = response.data.geonames;
+	});
+});
+/*
 viewsModule.controller('countryData', ["$scope","$http", function($scope, $http) {
 		$scope.user = "aminamat";
 		var url = 'http://api.geonames.org/countryInfoJSON?formatted=true&lang=eng&username='+ $scope.user +'&style=full';
@@ -21,3 +28,5 @@ viewsModule.controller('countryData', ["$scope","$http", function($scope, $http)
 		});
 	
 }]);
+
+*/

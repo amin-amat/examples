@@ -1,0 +1,34 @@
+<!-- City page code -->
+<section id="countries">
+	<header>
+		<h3>Data Table</h3>
+	</header>
+		<!-- TABLE -->
+		<!--name, country code, capital, area in square kilometers, population and continent code-->
+		<div>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Code</th>
+				<th>Capital</th>
+				<th>Area Sq.Kilo.</th>
+				<th>Pop.</th>
+				<th>Continent Code</th>
+			</tr>
+			<tr ng-repeat=" info in countries | orderBy: 'name' ">
+				<td> <a ng-href="#/countries/:{{ info.countryCode }}">{{ info.countryName }} </a> </td>
+				<td> {{ info.countryCode }} </td>
+				<td> {{ info.capital }} </td>
+				<td> {{ info.areaInSqKm }} </td>
+				<td> {{ info.population }} </td>
+				<td> {{ info.continent }} </td>
+			</tr>
+		</table>
+		</div>
+
+	<div>
+		<ul>
+			<li><button><a href="#/">Home</a></button></li>
+		</ul>
+	</div>
+</section>

@@ -1,0 +1,1 @@
+viewsModule.controller("countryData",["$scope","$http",function(t,e){t.user="aminamat";var o="http://api.geonames.org/countryInfoJSON?formatted=true&lang=eng&username="+t.user+"&style=full",a={callback:"JSON_CALLBACK",outputMode:"json"};e({method:"JSONP",url:o,params:a}).then(function(e){t.countries=e.data.geonames},function(t){alert("error")})}]);
