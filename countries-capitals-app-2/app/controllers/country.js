@@ -3,39 +3,23 @@ angular.module('ccApp')
 	var url_string = '&country=';
 	var cDetail = String(countryDetail.country).substring(1);
 	var url = url_string + cDetail;
-	
-	//console.log(cDetail);
 
 	geoData.countryInfo(url).then(function(res) {
 		$scope.info = res.data.geonames[0];
-		//console.log(res.data.geonames[0].geonameId);
-	var id = String(res.data.geonames[0].geonameId);
-	var capital = encodeURIComponent(res.data.geonames[0].capital);
+		var id = String(res.data.geonames[0].geonameId);
+		var capital = encodeURIComponent(res.data.geonames[0].capital);
 
 	//Get Neighboring Country Info
-	geoData_neighbor.neighbor(id).then(function(response) {
-		//$scope.neighbor_info = res.data.geonames[0];
-		$scope.neighbors = response.data.geonames;
-		//console.log($scope.neighbors);
-		
-	});
+		geoData_neighbor.neighbor(id).then(function(response) {
+			$scope.neighbors = response.data.geonames;
+		});
 
 	//Get Capital Info
-	geoData_cap.capital(capital,cDetail).then(function(response) {
-		//$scope.neighbor_info = res.data.geonames[0];
-		$scope.capital = response.data.geonames[0];
-		//console.log($scope.capital);
+		geoData_cap.capital(capital,cDetail).then(function(response) {
+			$scope.capital = response.data.geonames[0];
 		
-	});
+		});
 
 	})
-
-
-	
-
-
-	
-
-
 
 }]);

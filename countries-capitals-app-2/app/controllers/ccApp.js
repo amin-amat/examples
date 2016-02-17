@@ -46,9 +46,8 @@ angular.module('ccApp',['ngRoute', 'ngAnimate'])
 
 .factory('geoData_neighbor', ['$http', '$q', function($http,$q) {
 	return {
-		neighbor: function(val){
-			var id = val;
-			baseurl = 'http://api.geonames.org/neighboursJSON?formatted=true&geonameId='+ id +'&username=aminamat ';
+		neighbor: function(id){
+			baseurl = 'http://api.geonames.org/neighboursJSON?formatted=true&username=aminamat&geonameId='+ id +' ';
 
 			var myPromise = $q.defer();
 			//console.log(baseurl+path);
@@ -68,8 +67,6 @@ angular.module('ccApp',['ngRoute', 'ngAnimate'])
 .factory('geoData_cap', ['$http', '$q', function($http,$q) {
 	return {
 		capital: function(capital,countryCode){
-			//var cap = capital;
-			//var cCode = countryCode;
 			baseurl ='http://api.geonames.org/searchJSON?username=aminamat&formatted=true&name_equals='+ capital +'&country='+ countryCode +'&cities=cities15000'
 
 			var myPromise = $q.defer();
