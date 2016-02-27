@@ -8,18 +8,15 @@ angular.module('ccApp')
 		$scope.info = res.data.geonames[0];
 		var id = String(res.data.geonames[0].geonameId);
 		var capital = encodeURIComponent(res.data.geonames[0].capital);
-
 	//Get Neighboring Country Info
 		geoData_neighbor.neighbor(id).then(function(response) {
 			$scope.neighbors = response.data.geonames;
 		});
-
 	//Get Capital Info
 		geoData_cap.capital(capital,cDetail).then(function(response) {
 			$scope.capital = response.data.geonames[0];
 		
 		});
-
 	})
 
 }]);

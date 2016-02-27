@@ -9,18 +9,18 @@
 		<p>Capital : {{ capital.name }}</p>
 		<p>Capital Population : {{ capital.population }}</p>
 	</div>
-	<div><p>Neighbor(s): </p></div>
+	<div>
+		<p>Neighbor(s): </p>
+	</div>
 	<div ng-repeat="info in neighbors">
 		<p><a ng-href="#/countries/:{{ info.countryCode }}">{{info.countryName}}</a></p>
 	</div>
 	<div id="visuals">
 		<!-- MAP -->
 		<img id='cImage' src="http://www.geonames.org/img/country/250/{{ info.countryCode }}.png" />
-		
 		<!-- FLAG -->
 		<img id='cFlag' src="http://www.geonames.org/flags/x/{{ info.countryCode | lowercase }}.gif" />
 	</div>
-	
 	<div id="nav-bottom">
 		<ul>
 			<li><button><a href="#/">Home</a></button></li>
